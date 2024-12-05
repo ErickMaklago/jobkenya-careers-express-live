@@ -87,7 +87,6 @@
         </div>
     </nav>
 
-
     <!--ABOUT SECTION-->
     <div class="container px-4 py-5">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-4">
@@ -126,174 +125,49 @@
     </div>
 
     <!--JOBS-->
-    <div class="container px-4 mt-1">
+    <div class="container px-4 mt-5">
         <h2 class="text-center mb-4">Job Opportunities</h2>
 
         <!--JOBS LIST-->
         <div class="d-md-none">
+            {{#jobs}}
             <div class="card  mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Frontend Developer</h5>
-                    <h6 class="card-subtitle my-1 text-body-secondary">Bengaluru, India <br> Salary: Rs 12,00,000</h6>
-                    <small class="card-text text-body-secondary">Posted 3 days ago</small><br>
+                    <h5 class="card-title"><a href="/jobs/{{id}}">{{title}}</a></h5>
+                    <h6 class="card-subtitle my-1 text-body-secondary">
+                        {{location}}.{{salary}}
+                    </h6>
+                    <small class="card-text text-body-secondary">
+                        Posted {{posted}}
+                    </small>
                     <a href="https://jovian.com/learn" class="job-link mt-0 text-decoration-none"
                         target="_blank">Apply</a>
                 </div>
             </div>
-
-            <div class="card  mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Full Stack Developer</h5>
-                    <h6 class="card-subtitle my-1 text-body-secondary">New Delhi, India <br> Salary: Rs 15,00,000</h6>
-                    <small class="card-text text-body-secondary">Posted 5 days ago</small><br>
-                    <a href="https://jovian.com/learn" class="job-link mt-0 text-decoration-none"
-                        target="_blank">Apply</a>
-                </div>
-            </div>
-
-            <div class="card  mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Data Scientist</h5>
-                    <h6 class="card-subtitle my-1 text-body-secondary">San Fransisco, USA <br> Salary: Rs 175,000</h6>
-                    <small class="card-text text-body-secondary">Posted 10 days ago</small><br>
-                    <a href="https://jovian.com/learn" class="job-link mt-0 text-decoration-none"
-                        target="_blank">Apply</a>
-                </div>
-            </div>
-
-            <div class="card  mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Machine Learning Engineer</h5>
-                    <h6 class="card-subtitle my-1 text-body-secondary">Remote <br> Salary: Rs 85,000</h6>
-                    <small class="card-text text-body-secondary">Posted 13 days ago</small><br>
-                    <a href="https://jovian.com/learn" class="job-link mt-0 text-decoration-none"
-                        target="_blank">Apply</a>
-                </div>
-            </div>
-
-        </div>
-
-        <!--JOBS TABLE-->
-        <div class="d-none d-md-block col-md-12 col-lg-10 offset-lg-1">
-            <table class="table table-bordered table-striped">
-                <tr class="table-primary text-center">
-                    <th rowspan="2">Job Title</th>
-                    <th colspan="2">Location</th>
-                    <th rowspan="2">Salary, Rs</th>
-                    <th rowspan="2">Posted On</th>
-                    <th rowspan="2">Apply</th>
-                </tr>
-                <tr class="table-primary text-center">
-                    <th>City</th>
-                    <th>Country</th>
-                </tr>
-                <tr>
-                    <td>Frontend Developer</td>
-                    <td>Bengaluru</td>
-                    <td>India</td>
-                    <td>12,00,000</td>
-                    <td>Mar 3, 2023</td>
-                    <td class="text-center" target="_blank"><a class="text-decoration-none"
-                            href="https://jovian.com/learn">FE-Dev</a></td>
-                </tr>
-                <tr>
-                    <td>Full Stack Developer</td>
-                    <td>New Delhi</td>
-                    <td>India</td>
-                    <td>15,00,000</td>
-                    <td>Feb 1, 2023</td>
-                    <td class="text-center" target="_blank"><a class="text-decoration-none"
-                            href="https://jovian.com/learn">FS-Dev</a></td>
-                </tr>
-                <tr>
-                    <td>Data Scientist</td>
-                    <td>San Francisco</td>
-                    <td>USA</td>
-                    <td>175,000</td>
-                    <td>Dec 22, 2022</td>
-                    <td class="text-center" target="_blank"><a class="text-decoration-none"
-                            href="https://jovian.com/learn">D-Sci</a></td>
-                </tr>
-                <tr>
-                    <td>Machine Learning Engineer</td>
-                    <td colspan="2">Remote</td>
-                    <td>80,000</td>
-                    <td>Sept 19, 2023</td>
-                    <td class="text-center" target="_blank"><a class="text-decoration-none"
-                            href="https://jovian.com/learn">ML-Eng</a></td>
-                </tr>
-            </table>
+            {{/jobs}}
         </div>
     </div>
 
+    <!--JOBS TABLE-->
+    <div class="offset-lg-2 col-lg-8">
+        <table class="d-none d-md-table table table-bordered table-striped">
+            <tr class="table-primary text-center">
+                <th>Job Title</th>
+                <th>Location</th>
+                <th>Salary, Rs</th>
+                <th>Posted On</th>
+            </tr>
 
-    <!--APPLICATION FORM-->
-    <div class="container px-4 mt-5">
-        <h2 class="text-center">
-            Submit Application
-        </h2>
-
-
-        <form class="col-md-8 offset-md-2" action="https://formbold.com/s/3wvKl" method="POST"
-            enctype="multipart/form-data">
-            <div class="mb-3 col-sm-6>
-                <label for=" fullname" class="form-label">Full Name</label><br>
-                <input type="text" class="form-control" name="name" id="fullname" placeholder="Na Yul" required>
-            </div>
-
-            <div class="mb-3 col-sm-6>
-                <label for=" email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                    placeholder="abc@gmail.com">
-                <div id="emailHelp" class="form-text mb-3 col-sm-6">We'll never share your email with anyone else.</div>
-            </div>
-
-            <div class="mb-3 col-sm-6">
-                <label for="phone" class="form-label">Phone Number</label><br>
-                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+254700000000" required>
-            </div>
-
-            <div class="mb-3 col-sm-6">
-                <label for="dob" class="form-label">Date of Birth</label><br>
-                <input type="date" class="form-control" id="dob" name="dob" placeholder="mm-dd-yyyy" required>
-            </div>
-
-            <div class="mb-3 col-sm-6">
-                <label for="vacancy" class="form-label">Position Applied</label><br>
-                <select class="form-select" aria-label="Default select example" required>
-                    <option selected-value="">Select Vacancy</option>
-                    <option value="frontend-developer">Frontend Developer</option>
-                    <option value="full-stack-developer">Full Stack Developer</option>
-                    <option value="data-scientist">Data Scientist</option>
-                    <option value="ml-engineer">ML Engineer</option>
-                </select>
-            </div>
-
-            <div class="mb-3 col-sm-6">
-                <label for="resume" class="form-label">Upload Resume</label><br>
-                <input type="file" class="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-            </div>
-
-            <div class="mb-3 col-sm-8 col-md-10 col-lg-10>
-                <label for=" coverletter" class="form-label">Cover Letter</label><br>
-                <textarea id="coverletter" name="coverletter" rows="6"
-                    placeholder="Briefly explain your suitability for vacancy" class="form-control" required>
-                </textarea>
-            </div>
-
-            <div class="mb-3 form-check">
-                <label for="terms">
-                    <input type="checkbox" class="form-check-input" id="terms" required>
-                    I agree to terms and conditions
-                </label>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit Application" required>
-            </div>
-        </form>
+            {{#jobs}}
+            <tr>
+                <td><a href="/jobs/{{id}}">{{title}}</a></td>
+                <td>{{location}}</td>
+                <td>{{salary}}</td>
+                <td>{{posted on:}}</td>
+            </tr>
+            {{/jobs}}
+        </table>
     </div>
-
 
     <!--FOOTER-->
     <div class="container">

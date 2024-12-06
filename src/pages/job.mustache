@@ -120,6 +120,7 @@
           class="offset-lg-2 col-lg-8"
           action="/jobs/{{job.id}}/apply"
           method="POST"
+          enctype="multipart/form-data"
         >
           <!--NAME-->
           <div class="mb-3 col-sm-6">
@@ -184,6 +185,7 @@
               class="form-control"
               id="resume"
               name="resume"
+              accept=".pdf,.doc,.docx"
               required
             />
           </div>

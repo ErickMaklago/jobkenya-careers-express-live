@@ -36,13 +36,16 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/jobs/:id/apply', upload.single('resume'), (req, res) => {
+    const id = req.params.id;
+    const matchedJob = JOBS.find(job => job.id.toString() === id); // Define matchedJob here
+
     console.log(req.file); // Log the uploaded file information
     const resumePath = path.join(__dirname, 'uploads', req.file.filename);
 
     const mailOptions = {
         from: process.env.EMAIL_ID,
         to: req.body.email,
-        subject: `New Application for ${req.body.matchedJobTitle}`,
+        subject: `New Application for ${matchedJob.title}`, // Use matchedJob here
         html: `
         <p><strong>Name:</strong> ${req.body.name}</p>
         <p><strong>Email:</strong> ${req.body.email}</p>
@@ -64,11 +67,10 @@ app.post('/jobs/:id/apply', upload.single('resume'), (req, res) => {
         if (error) {
             console.error(error);
             res.status(500).send('Error sending application');
-        } else{
-            console.log('Email sent:'+info.response);
+        } else {
+            console.log('Email sent: ' + info.response);
             res.status(200).render('applied');
         }
-        
     });
 });
 

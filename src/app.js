@@ -43,8 +43,8 @@ app.post('/jobs/:id/apply', upload.single('resume'), (req, res) => {
     const resumePath = path.join(__dirname, 'uploads', req.file.filename);
 
     const mailOptions = {
-        from: process.env.EMAIL_ID,
-        to: req.body.email,
+        from: req.body.email,
+        to: process.env.EMAIL_ID,
         subject: `New Application for ${matchedJob.title}`, // Use matchedJob here
         html: `
         <p><strong>Name:</strong> ${req.body.name}</p>
